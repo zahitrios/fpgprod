@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+		<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../styles.css">
+		<link rel="stylesheet" type="text/css" href="styles.css">		
+
+		<script text="javascript" src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script text="javascript" src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+		<script language="javascript" src="../functions.js"></script>
+		<script language="javascript" src="./functions.js"></script>
+
+
+</head>
+<body>
+
+	<div class="bordePantalla" style="display: block; margin-top: 25px;">
+		<span class="titulosRojos" style="padding-left: 400px;">II Representante Legal</span>
+		<br>
+		<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+			<tr align="left">
+				<td valign="top" style="background-color: #f29656">
+					Persona Física 
+					<input type="radio" name="personaFisica" id="pfA" value="1" required onclick="evaluaYMuestra(this,'personaF','','formato7');"> Si
+
+					<input type="radio" name="personaFisica" id="pfB" value="0" required onclick="evaluaYMuestra(this,'personaF','','cartaPoder');"> No
+					<!-- falta hacer que las opciones tengan required -->
+				</td>
+			</tr>
+		</table>
+		<div id="personaF" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+					<tr align="left">
+						<td style="width:80%;">
+							Original Carta poder para actos de dominio<br>
+						</td>
+						<td>
+							<input type="radio" name="cartaPoder" value="1"> Si
+							<input type="radio" name="cartaPoder" value="0"> No<br>
+							<select style="margin-bottom: 3px; margin-left: 2px; background-color: #f9f8f8">
+								<option value="representante común">Representante común</option>
+								<option value="persna autorizada">Persona autorizada</option>
+							</select>
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Original Poder notarial para actos de dominio<br>
+						</td>
+						<td>
+							<input type="radio" name="poderNotarial" value="1"> Si
+							<input type="radio" name="poderNotarial" value="0"> No 
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Copia simple de Identificación oficial vigente con fotografía y firma (rep. legal)<br>
+						</td>
+						<td>
+							<input type="radio" name="ideRepresentante" value="1"> Si
+							<input type="radio" name="ideRepresentante" value="0"> No<br>Verificar sello de cotejado
+						</td>
+					</tr>
+			</table>
+		</div>
+		<div>
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="background-color: #f29656">
+						Persona Moral
+						<input type="radio" name="personaMoral" value="1" required required onclick="evaluaYMuestra(this,'personaM','','formato7');"> Si
+						<input type="radio" name="personaMoral" value="0" required required onclick="evaluaYMuestra(this,'personaM','','formato7');"> No
+						<!-- falta hacer que las opciones tengan required -->
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="personaM" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="width: 80%;">
+						Copia certificada del Acta constitutiva de la Sociedad, de sus estatutos con sus últimas modificaciones<br> 
+					</td>
+					<td>
+						<input type="radio" name="actaSociedad" value="1"> Si
+						<input type="radio" name="actaSociedad" value="0"> No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Original del Poder para actos de dominio del Representante Legal certificado ante Notario Público en el que se le faculte<br>
+					</td>
+					<td>
+						<input type="radio" name="actosDominio" value="1"> Si
+						<input type="radio" name="actosDominio" value="0"> No 
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Copia simple Identificación oficial vigente con fotografía y firma del representante legal<br>
+					</td>
+					<td>
+						<input type="radio" name="ideOficial" value="1"> Si
+						<input type="radio" name="ideOficial" value="0"> No<br>Verificar sello de cotejado
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="bordePantalla" style="display: block; margin-top: 25px;">
+		<!-- corregir padding a centrado -->
+		<span class="titulosRojos" style="padding-left: 400px;">
+			Menor de edad (opcional)
+			<br>
+		</span>
+		<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+			<tr>
+				<td valign="top" align="left" style="background-color: #f29656">
+					<input type="radio" name="menorEdad" value="1" required required onclick="evaluaYMuestra(this,'menorE','','formato7');"> Si
+					<input type="radio" name="menorEdad" value="0" required required onclick="evaluaYMuestra(this,'menorE','','formato7');"> No
+					<!-- falta hacer que las opciones tengan required -->
+				</td>
+			</tr>
+		</table>
+		<div id="menorE" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="width: 80%;">
+						Original Documento judicial que acredite el estado de interdicción y la tutelaF
+					</td>
+					<td>
+						<input type="radio" name="documentoTutela" value="1">Si
+						<input type="radio" name="documentoTutela" value="0">No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Original Documento judicial que acredite la adopción del menor
+					</td>
+					<td>
+						<input type="radio" name="documentoAdopcion" value="1">Si
+						<input type="radio" name="documentoAdopcion" value="0">No
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="bordePantalla" style="display: block; margin-top: 25px;">
+		<!-- corregir padding a centrado -->
+		<span class="titulosRojos" style="padding-left: 400px;">Albacea/Heredero/Beneficiario</span>
+		<br>
+		<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+			<tr>
+				<td valign="top" align="left" style="background-color: #f29656">
+					Albacea (décimo)
+					<input type="radio" name="albacea" value="1" required required onclick="evaluaYMuestra(this,'albc','','formato7');"> Si
+					<input type="radio" name="albacea" value="0" required required onclick="evaluaYMuestra(this,'albc','','formato7');"> No
+					<!-- falta hacer que las opciones tengan required -->
+				</td>
+			</tr>
+		</table>
+		<div id="albc" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="width: 80%;">
+						Copia certificada del Acta de Defunción del Ahorrador
+					</td>
+					<td>
+						<input type="radio" name="actaDefuncion" value="1"> Si
+						<input type="radio" name="actaDefuncion" value="0"> No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Copia certificada del documento judicial que acredite su cargo de Albacea
+					</td>
+					<td>
+						<input type="radio" name="acrediteAlbacea" value="1"> Si
+						<input type="radio" name="acrediteAlbacea" value="0"> No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Copia simple de Identificación oficial vigente con fotografía y firma del Albacea
+					</td>
+					<td>
+						<input type="radio" name="ideAlbacea" value="1"> Si
+						<input type="radio" name="ideAlbacea" value="0"> No 
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Copia certificada del discernimiento y aceptación del cargo de albacea
+					</td>
+					<td>
+						<input type="radio" name="aceptacionAlbacea" value="1"> Si
+						<input type="radio" name="aceptacionAlbacea" value="0"> No
+					</td>
+				</tr>
+			</table>
+		</div>
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr>
+					<td valign="top" align="left" style="background-color: #f29656">
+						Herederos (décimo primero)
+						<input type="radio" name="heredero" value="1" required required onclick="evaluaYMuestra(this,'hrd','','formato7');"> Si
+						<input type="radio" name="heredero" value="0" required required onclick="evaluaYMuestra(this,'hrd','','formato7');"> No
+						<!-- falta hacer que las opciones tengan required -->
+					</td>
+				</tr>
+			</table>
+		<div id="hrd" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+					<tr align="left">
+						<td style="width: 80%;">
+							 Copia certificada del Acta de Defunción del Ahorrador
+						</td>
+						<td>
+							<input type="radio" name="actaDeDefuncion" value="1"> Si
+							<input type="radio" name="actaDeDefuncion" value="0"> No
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Copia certificada del Acta de Nacimiento de su representado si es menor de edad o del documento judicial que acredite el estado de interdicción y la tutela
+						</td>
+						<td>
+							<input type="radio" name="actaNacimientoTutela" value="1"> Si
+							<input type="radio" name="actaNacimientoTutela" value="0"> No 
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Copia simple de Identificación oficial vigente con fotografía y firma del (los) Heredero(s)
+						</td>
+						<td>
+							<input type="radio" name="ideHeredero" value="1"> Si
+							<input type="radio" name="ideHeredero" value="0"> No
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Copia certificada de la escritura del testamento o en caso de resolución judicial, copia certificada de la sentencia en que conste su protocolización, la participación y adjudicación de los bienes heredados
+						</td>
+						<td>
+							<input type="radio" name="testamento" value="1"> Si
+							<input type="radio" name="testamento" value="0"> No
+						</td>
+					</tr>
+			</table>
+		</div>
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr>
+					<td align="left" style="background-color: #f29656">
+						Beneficiario (décimo segundo)
+						<input type="radio" name="beneficiario" value="1" required required onclick="evaluaYMuestra(this,'bnf','','formato7');"> Si
+						<input type="radio" name="beneficiario" value="0" required required onclick="evaluaYMuestra(this,'bnf','','formato7');"> No
+						<!-- falta hacer que las opciones tengan required -->
+					</td>
+				</tr>
+			</table>
+		<div id="bnf" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+					<tr align="left">
+						<td style="width: 80%;">
+							Copia certificada del Acta de Defunción del Ahorrador
+						</td>
+						<td align="left">
+							<input type="radio" name="copiaDefuncion" value="1"> Si
+							<input type="radio" name="copiaDefuncion" value="0"> No
+						</td>
+					</tr>
+					<tr align="left" style="padding-top: 20px;padding-bottom: 20px">
+						<td>
+							Del(los) beneficiario(s), copia certificada de su Acta de Nacimiento, Pasaporte, Credencial del Instituto Nacional Electoral (antes IFE), Credencial del Instituto Nacional de las Personas Adultas Mayores INAPAM (antes INSEN), Clave única de Registro de Población (CURP) o Cédula Profesional O Constancia Municipal de Identidad
+						</td>
+						<td>
+							<input type="radio" name="documentosBeneficiarios" value="1"> Si
+							<input type="radio" name="documentosBeneficiarios" value="0"> No 
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Copia simple de Identificación oficial vigente con fotografía y firma del (os) Beneficiario(s)
+						</td>
+						<td>
+							<input type="radio" name="ideBeneficiario" value="1"> Si
+							<input type="radio" name="ideBeneficiario" value="0"> No
+						</td>
+					</tr>
+					<tr align="left">
+						<td>
+							Contrato original celebrado con la Sociedad de que se trate, en que se designa(n) al (os) Beneficiario(s)
+						</td>
+						<td>
+							<input type="radio" name="contrato" value="1"> Si
+							<input type="radio" name="contrato" value="0"> No
+						</td>
+					</tr>
+				</div>
+			</table>
+		</div>
+	</div>
+	<div class="bordePantalla" style="display: block; margin-top: 25px;">
+		<span class="titulosRojos" style="padding-left: 400px;">
+			Formatos de Identidad
+			<br>
+		</span>
+		<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+			<tr>
+				<td valign="top" align="left" style="background-color: #f29656;">
+					<input type="radio" name="menorEdad" value="1" required required onclick="evaluaYMuestra(this,'fromatosI','','formato7');"> Si
+					<input type="radio" name="menorEdad" value="0" required required onclick="evaluaYMuestra(this,'fromatosI','','formato7');"> No
+					<!-- falta hacer que las opciones tengan required -->
+				</td>
+			</tr>
+		</table>
+		<div id="fromatosI" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="width: 80%;">
+						Solicitud del ahorrador (anverso y reverso)
+						<input type="radio" name="solicitudAhorrador" value="1">Si
+						<input type="radio" name="solicitudAhorrador" value="0">No
+					</td>
+					<td>
+						Fecha del formato
+						<input type="date" name="fechaSolicitudAhorrador" style="background-color: #f9f8f8">
+
+						<!-- cumplir con plazos de registro; verificar los sellos -->
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Declaración anual correspondiente a cada uno de los años en que fue Ahorrador de la Sociedad por los últimos cinco años
+					</td>
+					<td>
+						<input type="radio" name="declaracionAnualObligacionesfiscales" value="1">Elegir
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Manifestación de cumplimiento de obligaciones fiscales
+					</td>
+					<td>
+						<input type="radio" name="declaracionAnualObligacionesfiscales" value="1">Elegir
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Etiqueta de Sobre de Expediente Individual de Ahorrador (Formato 4)
+					</td>
+					<td>
+						<input type="radio" name="expedienteIndividual" value="1">Si
+						<input type="radio" name="expedienteIndividual" value="0">No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Cédula de Caso Atípico (Formato 8)
+					</td>
+					<td>
+						<input type="radio" name="cédulaAtipico" value="1">Si
+						<input type="radio" name="cédulaAtipico" value="0">No
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div class="bordePantalla" style="display: block; margin-top: 25px;">
+		<span class="titulosRojos" style="padding-left: 400px;">
+			Documentos de Valor
+			<br>
+		</span>
+		<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+			<tr>
+				<td valign="top" align="left" style="background-color: #f29656;">
+					<input type="radio" name="documentosValor" value="1" required required onclick="evaluaYMuestra(this,'documentosV','','formato7');"> Si
+					<input type="radio" name="documentosValor" value="0" required required onclick="evaluaYMuestra(this,'documentosV','','formato7');"> No
+					<!-- falta hacer que las opciones tengan required -->
+				</td>
+			</tr>
+		</table>
+		<div id="documentosV" class="oculta" style="display: none">
+			<table class="tablaPantallas sinBorde separadorTabla" style="border-bottom: none;">
+				<tr align="left">
+					<td style="width: 80%;">
+						Transmisión de Titularidad de créditos (LCS-4/144)
+						<!-- para sociedades en curso mercantil -->
+					</td>
+					<td>
+						<input type="radio" name="titularidadCreditos" value="1">Si
+						<input type="radio" name="titularidadCreditos" value="0">No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Certificado de no adeudo
+						<!-- VERIFICAR EN EL HISTORICO DEL AHORRADOR SI EN ALGÚN MOMENTO TUVO PRÉSTAMOS A CARGO -->
+					</td>
+					<td>
+						<input type="radio" name="noAdeudo" value="1">Si
+						<input type="radio" name="noAdeudo" value="0">No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Carta de no Responsabilidad por la no Liberación de Garantías
+					</td>
+					<td>
+						<input type="radio" name="noLiberacion" value="1">Si
+						<input type="radio" name="noLiberacion" value="0">No
+					</td>
+				</tr>
+				<tr align="left">
+					<td>
+						Sentencia de Quiebra o Concurso Mercantil
+					</td>
+					<td>
+						<input type="radio" name="sentenciaQuiebra" value="1">Si
+						<input type="radio" name="sentenciaQuiebra" value="0">No
+					</td>
+				</tr>
+				<!-- incompleto -->
+			</table>
+		</div>
+	</div>
+	
+</body>
+</html>
+
+
